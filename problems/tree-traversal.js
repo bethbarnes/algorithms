@@ -61,7 +61,20 @@ console.log('breadth first of a', breadthFirst(a));
 
 //-----------DEPTH FIRST PRE ORDER TRAVERSAL-----------//
 
-function depthFirstPreOrder(){
-
-
+//if I want to calla  callback on them in depth first order
+function depthFirstPreOrder(startNode, callback){
+  callback(startNode.value)
+  startNode.children.forEach(child => {
+    depthFirstPreOrder(child, callback)
+  })
 }
+
+//if I want to add them to array in Depth First order
+function depthFirstPreOrder(startNode, callback){
+  let q = [startNode.value]
+  startNode.children.forEach(child => {
+    q.push(...depthFirstPreOrder(child))
+  })
+  return q
+}
+
