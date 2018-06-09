@@ -37,17 +37,31 @@ c.children.push(f,g,h);
 h.children.push(m);
 d.children.push(i,j);
 
-//Breadth First Traversal
+//-----------BRREADTH FIRST TRAVERSAL-----------//
 
 function breadthFirst(startNode){
   let queue = [startNode];
   let currIdx = 0;
   while (currIdx < queue.length){
+    //if I wanted to do something to each child, I could pass in a callback and call it here like this:
+      // const node = queue.shift();
+      // callback(node.value)
     queue = queue.concat(queue[currIdx].children);
     // queue.push(...queue[currIdx].children);
     currIdx++;
   }
   return queue;
 }
-
 console.log('breadth first of a', breadthFirst(a));
+
+//TIME: O(N) - N is length number of nodes in tree
+//SPACE: O(N)
+
+
+
+//-----------DEPTH FIRST PRE ORDER TRAVERSAL-----------//
+
+function depthFirstPreOrder(){
+
+
+}
