@@ -78,3 +78,22 @@ function depthFirstPreOrder(startNode, callback){
   return q
 }
 
+//-----------DEPTH FIRST POST ORDER TRAVERSAL-----------//
+
+//if I want to calla  callback on them in depth first post order
+function depthFirstPostOrder(startNode, callback){
+  startNode.children.forEach(child => {
+    depthFirstPostOrder(child, callback)
+  })
+  callback(startNode.value)
+}
+
+//if I want to add them to array in Depth First Post order
+function depthFirstPreOrder(startNode){
+  let q = []
+  startNode.children.forEach(child => {
+    q.push(...depthFirstPreOrder(child))
+  })
+  q.push(startNode.value)
+  return q
+}
